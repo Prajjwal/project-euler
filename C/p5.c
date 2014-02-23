@@ -12,7 +12,7 @@ int main(void)
 		ans = lcm(ans, nums[i]);
 	}
 
-	printf("%ld", ans);
+	printf("%ld", ans); /* 232792560 */
 
 	return 0;
 }
