@@ -1,4 +1,4 @@
-# Compute all primes under a million using the sieve of eratosthenes.
+# Compute all primes under 2 million using the sieve of eratosthenes.
 # https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
 n, sum = 2E6, 0
