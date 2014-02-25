@@ -5,11 +5,7 @@ n, sum = 2E6, 0
 sieve = [].fill(true, (2..n))
 
 2.upto Math.sqrt(n) do |i|
-  if sieve[i]
-    (i * i).step n, i do |j|
-      sieve[j] = false
-    end
-  end
+  (i * i).step(n, i) { |j| sieve[j] = false } if sieve[i]
 end
 
 sieve.each_with_index { |b, i| sum += i if b }
