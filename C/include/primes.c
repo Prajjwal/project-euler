@@ -10,7 +10,7 @@
 void eratosthenes_sieve(char** sieve, int n)
 {
 	int i, j;
-	*sieve = (char *) malloc(n);
+	*sieve = malloc(n);
 	char* s = *sieve;
 
 	s[0] = 0;
