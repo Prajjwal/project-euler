@@ -1,32 +1,20 @@
 #include <stdio.h>
-#include <math.h>
-#define N 2000001
+#include <malloc.h>
+#include "include/primes.h"
 
 int main(void)
 {
-	int i, j;
+	int* ps;
+	int i, count = primes(&ps, 2E6);
 	long sum = 0;
-	char sieve[N + 1] = { 0, 0 };
 
-	for (i = 2; i < N; ++i) {
-		sieve[i] = 1;
-	}
-
-	for (i = 2; i < sqrt(N); ++i) {
-		if (sieve[i]) {
-			for (j = i * i; j < N; j += i) {
-				sieve[j] = 0;
-			}
-		}
-	}
-
-	for (i = 2; i < N; ++i) {
-		if (sieve[i]) {
-			sum += i;
-		}
+	for (i = 0; i < count; ++i) {
+		sum += ps[i];
 	}
 
 	printf("%ld", sum);
+
+	free(ps);
 
 	return 0;
 }
