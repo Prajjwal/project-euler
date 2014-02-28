@@ -14,7 +14,7 @@ int main(void)
 	 *
 	 * (length until n reached a known value < i) + chain_lengths[n];
 	 *
-	 * This is extremely fast, runs in ~380ms on my machine.
+	 * This is extremely fast, runs in ~19ms on my machine with gcc -O3.
 	 */
 	for (i = 3; i < 1000000; ++i) {
 		chain_length = 0;
