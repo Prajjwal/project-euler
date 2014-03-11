@@ -23,6 +23,9 @@ int main(void)
 	/* Print out the first ten digits of sum. */
 	mpz_get_str(buffer, 10, sum);
 
+	mpz_clear(sum);
+	mpz_clear(num);
+
 	for (i = 0; i < 10; ++i) {
 		printf("%c", buffer[i]);
 	}

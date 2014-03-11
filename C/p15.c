@@ -23,6 +23,9 @@ int main(void)
 
 	mpz_out_str(stdout, 10, x);
 
+	mpz_clear(x);
+	mpz_clear(y);
+
 	return 0;
 }
 
