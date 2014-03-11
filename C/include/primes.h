@@ -2,6 +2,6 @@
 
 #pragma once
 
-void eratosthenes_sieve(char **, int);
+int eratosthenes_sieve(char *, int);
 
 int primes(int **, int);

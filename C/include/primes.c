@@ -5,56 +5,61 @@
 /* Compute primes below 'n' using eratosthenes sieve.
  * https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
  *
- * When this function exits, *sieve[i] = 1 if i is prime.
+ * sieve must be pre allocated enough memory to hold n chars.
+ *
+ * When this function exits, *sieve[i] = 1 if i is prime, and the number of
+ * primes found is returned.
  */
-void eratosthenes_sieve(char** sieve, int n)
+int eratosthenes_sieve(char* sieve, int n)
 {
-	int i, j;
-	*sieve = malloc(n);
-	char* s = *sieve;
+	int i, j, count = 0;
 
-	s[0] = 0;
-	s[1] = 0;
+	sieve[0] = 0;
+	sieve[1] = 0;
 
 	for (i = 2; i < n; ++i) {
-		s[i] = 1;
+		sieve[i] = 1;
 	}
 
 	for (i = 2; i < sqrt(n); ++i) {
-		if (s[i]) {
+		if (sieve[i]) {
 			for (j = i * i; j < n; j += i) {
-				s[j] = 0;
+				sieve[j] = 0;
 			}
 		}
 	}
-}
 
-/* Build a list of primes below 'n'.
- * Writes the primes to *ps & returns it's size.
- */
-int primes(int** ps, int n)
-{
-	int i, j, count = 0;
-	char* s;
-
-	eratosthenes_sieve(&s, n);
-
-	/* Calc no. of primes computed by eratosthenes_sieve() */
 	for (i = 2; i < n; ++i) {
-		if (s[i]) {
+		if (sieve[i]) {
 			count++;
 		}
 	}
 
+	return count;
+}
+
+/* Build a list of primes below 'n'.
+ * Writes the primes to *ps & returns it's size.
+ *
+ * Allocates memory, don't forget to free(ps) later.
+ */
+int primes(int** ps, int n)
+{
+	int i, j, count;
+	char* s = malloc(n);
+
+	count = eratosthenes_sieve(s, n);
+
 	*ps = malloc(count * sizeof(int));
-	int* p = *ps;
 
 	for (i = 2, j = 0; i < n; ++i) {
 		if (s[i]) {
-			p[j] = i;
+			(*ps)[j] = i;
 			j++;
 		}
 	}
+
+	free(s);
 
 	return count;
 }
