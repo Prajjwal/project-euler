@@ -4,5 +4,5 @@ clean:
 p7 p10:
 	cc -c $@.c include/primes.c
 	cc primes.o $@.o -o $@ -lm
-p13:
+p13 p15:
 	cc $@.c -o $@ -lgmp
