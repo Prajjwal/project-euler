@@ -18,7 +18,7 @@
  *
  * Eg
  *
- * D(28) = (2 + 1) * (1 + 1) = 3 * 3 = 6
+ * D(28) = (2 + 1) * (1 + 1) = 3 * 2 = 6
  *
  * The first triangle number can thus be computed quickly by making use of
  * an array of primes(which can be generated efficiently using a sieve).
