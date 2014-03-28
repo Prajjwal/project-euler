@@ -6,7 +6,4 @@
       (fib-sum-iter b (+ a b) (if (pred b) (+ sum b) sum))))
   (fib-sum-iter 1 1 0))
 
-(define (fib-sum-even n)
-  (fib-sum n (lambda (x) (even? x))))
-
-(fib-sum-even (- 4E6 1))
+(fib-sum 4E6 even?)
