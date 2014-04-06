@@ -1,15 +1,15 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int sum_proper_divisors(int);
+bool is_amicable(int);
 
 int main(void)
 {
-	int i, s, sum = 0;
+	int i, sum = 0;
 
 	for (i = 2; i < 10000; ++i) {
-		s = sum_proper_divisors(i);
-
-		if (s != i && sum_proper_divisors(s) == i) {
+		if (is_amicable(i)) {
 			sum += i;
 		}
 	}
@@ -30,4 +30,10 @@ int sum_proper_divisors(int n)
 	}
 
 	return sum;
+}
+
+bool is_amicable(int n) {
+	int s = sum_proper_divisors(n);
+
+	return (s != n && sum_proper_divisors(s) == n);
 }
