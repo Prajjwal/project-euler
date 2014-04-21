@@ -1,7 +1,7 @@
 CFLAGS=-Wall
 
 p7 p10 p12: LDLIBS=-lm
-p13 p15 p16 p20 p25: LDLIBS=-lgmp
+p13 p15 p16 p20 p25 p48: LDLIBS=-lgmp
 
 p7 p10 p12: include/primes.o
 
