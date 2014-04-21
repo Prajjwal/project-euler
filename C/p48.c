@@ -22,11 +22,8 @@ int main(void)
 	mpz_get_str(digits, 10, sum);
 
 	/* Print last 10 digits of the string. */
-	i = size - 10;
-
-	while (i < size) {
+	for (i = size - 10; i < size; ++i) {
 		putchar(digits[i]);
-		++i;
 	}
 
 	free(digits);
